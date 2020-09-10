@@ -1,5 +1,7 @@
 package com.example.gradetracker_teamk;
 
+import com.example.gradetracker_teamk.Model.User;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +13,9 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void getUser_Name() { User user = new User("Jesus", "UserName", "password");
+
+     assertEquals("Jesus", user.getName());
     }
+
 }
