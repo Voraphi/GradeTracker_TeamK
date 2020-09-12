@@ -78,8 +78,4 @@ public class LoginPage extends AppCompatActivity {
         }
         return false;
     }
-    public static Intent getintent(Context context){
-        Intent intent = new Intent(context, LoginPage.class);
-        return intent;
-    }
 }

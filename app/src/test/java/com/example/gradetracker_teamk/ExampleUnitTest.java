@@ -13,9 +13,10 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void getUser_Name() { User user = new User("Jesus", "UserName", "password");
+    public void getUser_Name() {
+        User user = new User("Jesus", "UserName", "password");
 
-     assertEquals("Jesus", user.getName());
+        assertEquals("Jesus", user.getName());
     }
 
 }

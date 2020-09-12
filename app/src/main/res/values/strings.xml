@@ -4,4 +4,6 @@
     <string name="login_input1">Username</string>
     <string name="login_button">Log In</string>
     <string name="login_input2">Password</string>
+    <string name="welcome">Welcome</string>
+    <string name="placeholder">placeholder</string>
 </resources>

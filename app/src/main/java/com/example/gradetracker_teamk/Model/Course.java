@@ -1,10 +1,17 @@
 package com.example.gradetracker_teamk.Model;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "course")
+@Entity(tableName = "COURSES_TABLE",
+        foreignKeys = {@ForeignKey(
+        entity = User.class,
+        parentColumns = "userId",
+        childColumns = "userId")
+})
 public class Course {
+    private int userId;
     private String courseName;
     private String subject;
     private String location;
@@ -87,5 +94,13 @@ public class Course {
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

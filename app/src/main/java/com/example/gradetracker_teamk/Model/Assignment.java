@@ -1,10 +1,24 @@
 package com.example.gradetracker_teamk.Model;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "assignments")
+@Entity(tableName = "ASSIGNMENTS_TABLE", 
+        foreignKeys = {@ForeignKey(
+                entity = Course.class,
+                parentColumns = "courseId",
+                childColumns = "courseId")
+        })
+
 public class Assignment {
+
+
+
+    private int courseId;
+
+
+
     private String assignment;
     private int maxScore;
     private double earnedScore;
@@ -68,5 +82,13 @@ public class Assignment {
 
     public void setAssignmentId(int assignmentId) {
         this.assignmentId = assignmentId;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }
