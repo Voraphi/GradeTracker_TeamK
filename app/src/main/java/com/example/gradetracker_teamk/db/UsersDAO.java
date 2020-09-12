@@ -17,4 +17,10 @@ public interface UsersDAO {
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE userId = :userId")
     User getUserByUserId(int userId);
 
+    @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE username = :username and password = :password")
+    User verifyCreds(String username, String password);
+
+    @Query("SELECT password FROM " + AppDataBase.USERS_TABLE + " WHERE username = :username")
+    String getPassByUser(String username);
+
 }

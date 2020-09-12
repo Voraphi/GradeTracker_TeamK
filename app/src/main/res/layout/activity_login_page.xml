@@ -5,24 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="false"
-    android:background="#FFFFFF"
+    android:background="@drawable/mobile_back"
     android:backgroundTintMode="add"
     android:hapticFeedbackEnabled="false"
     tools:context=".LoginPage">
 
+
     <TextView
+
         android:id="@+id/home_text_view_1"
-        android:layout_width="201dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="236dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="104dp"
         android:autoSizeTextType="uniform"
-        android:background="#FFFFFF"
-        android:fontFamily="serif"
+        android:background="#00EAE9EA"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
         android:text="@string/login_header"
-        android:textColor="#000000"
+        android:textColor="#DDDDDD"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +36,10 @@
         android:id="@+id/home_text_view_2"
         android:layout_width="213dp"
         android:layout_height="42dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="156dp"
+
+
+        android:background="#BFFFFFFF"
         android:ems="10"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
@@ -38,15 +47,17 @@
         android:inputType="textPersonName"
         android:shadowColor="#000000"
         android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_text_view_1" />
 
     <Button
         android:id="@+id/home_button"
-        android:layout_width="207dp"
-        android:layout_height="71dp"
+        android:layout_width="246dp"
+        android:layout_height="82dp"
         android:backgroundTint="#90CAF9"
         android:fontFamily="serif"
         android:shadowColor="#95EF8F"
@@ -54,23 +65,26 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_text_view_3"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <EditText
         android:id="@+id/home_text_view_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_width="213dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="28dp"
+        android:background="#BFFFFFFF"
         android:ems="10"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:hint="@string/login_input2"
         android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_text_view_2" />
 

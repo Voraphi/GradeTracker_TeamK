@@ -20,7 +20,7 @@ import com.example.gradetracker_teamk.db.UsersDAO;
 
 public class MainActivity extends AppCompatActivity {
 
-    UsersDAO db;
+    private UsersDAO db;
     private Button b1;
 
     @Override
