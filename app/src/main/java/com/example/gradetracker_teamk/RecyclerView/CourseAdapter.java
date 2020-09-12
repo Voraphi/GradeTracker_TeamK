@@ -10,9 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gradetracker_teamk.R;
+
 import java.util.ArrayList;
 
-public class Adapters extends RecyclerView.Adapter<Adapters.ViewHolder> {
+public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
     private ArrayList<CourseItems> list;
     private OnItemClickedListener listener;
 
@@ -25,15 +27,43 @@ public class Adapters extends RecyclerView.Adapter<Adapters.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView1;
-        public TextView textView2;
+        public TextView courseNameView;
+        public TextView courseLocationView;
+        public ImageView info_icon;
+        public ImageView edit_icon;
         public ImageView delete_icon;
 
         public ViewHolder(@NonNull View itemView, final OnItemClickedListener listener) {
             super(itemView);
-            textView1 = itemView.findViewById(R.id.item_obeject);
-            textView2 = itemView.findViewById(R.id.flightName);
+            courseNameView = itemView.findViewById(R.id.assignment);
+            courseLocationView = itemView.findViewById(R.id.location);
+            info_icon = itemView.findViewById(R.id.image_info);
+            edit_icon = itemView.findViewById(R.id.image_edit);
             delete_icon = itemView.findViewById(R.id.image_delete);
+
+            info_icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+            edit_icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
             delete_icon.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -49,14 +79,14 @@ public class Adapters extends RecyclerView.Adapter<Adapters.ViewHolder> {
         }
     }
 
-    public Adapters(ArrayList<CourseItems> list) {
+    public CourseAdapter(ArrayList<CourseItems> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_items, parent, false);
         ViewHolder vh = new ViewHolder(v, listener);
         return vh;
     }
@@ -65,8 +95,8 @@ public class Adapters extends RecyclerView.Adapter<Adapters.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CourseItems currentItem = list.get(position);
 
-        holder.textView1.setText(currentItem.getText1());
-        holder.textView2.setText(currentItem.getText2());
+        holder.courseNameView.setText(currentItem.getCourseName());
+        holder.courseLocationView.setText(currentItem.getLocation());
     }
 
     @Override
