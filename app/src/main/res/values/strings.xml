@@ -7,4 +7,6 @@
     <string name="welcome">Welcome</string>
     <string name="placeholder">placeholder</string>
     <string name="register_button">Sign Up</string>
+    <string name="first">First Name</string>
+    <string name="last">Last Name</string>
 </resources>

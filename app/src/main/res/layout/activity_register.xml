@@ -10,10 +10,11 @@
         android:id="@+id/register_header"
         android:layout_width="217dp"
         android:layout_height="125dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="@string/register_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,13 +22,13 @@
         android:id="@+id/register_input1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:gravity="center"
+        android:hint="@string/login_input1"
         android:inputType="textPersonName"
-        android:text="@string/login_input1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_last_name" />
 
@@ -35,13 +36,13 @@
         android:id="@+id/register_input2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:gravity="center"
+        android:hint="@string/login_input2"
         android:inputType="textPersonName"
-        android:text="@string/login_input2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_input1" />
 
@@ -56,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_input2"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.783" />
 
     <EditText
         android:id="@+id/register_first_name"
@@ -64,8 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:hint="@string/first"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,10 +76,10 @@
         android:id="@+id/register_last_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
+        android:hint="@string/last"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

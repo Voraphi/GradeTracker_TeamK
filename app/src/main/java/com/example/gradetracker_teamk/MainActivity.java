@@ -21,7 +21,8 @@ import com.example.gradetracker_teamk.db.UsersDAO;
 public class MainActivity extends AppCompatActivity {
 
     private UsersDAO db;
-    private Button b1;
+    private Button register_button;
+    private Button login_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,18 @@ public class MainActivity extends AppCompatActivity {
 
         db = AppDataBase.getInstance(getApplicationContext()).getUsersDAO();
 
-        b1 = findViewById(R.id.login_button);
+        register_button = findViewById(R.id.register_button);
+        login_button = findViewById(R.id.login_button);
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Register.class);
+                startActivity(intent);
+            }
+        });
+        login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
