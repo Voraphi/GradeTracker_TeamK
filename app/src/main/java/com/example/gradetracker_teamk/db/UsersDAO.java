@@ -4,7 +4,10 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.gradetracker_teamk.Model.Course;
 import com.example.gradetracker_teamk.Model.User;
+
+import java.util.List;
 
 @Dao
 public interface UsersDAO {
@@ -22,5 +25,11 @@ public interface UsersDAO {
 
     @Query("SELECT password FROM " + AppDataBase.USERS_TABLE + " WHERE username = :username")
     String getPassByUser(String username);
+
+    @Insert
+    void insertCourse(Course course);
+
+    @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE userId = :userId")
+    List<Course> getCoursesByUserId(int userId);
 
 }

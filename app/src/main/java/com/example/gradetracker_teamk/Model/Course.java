@@ -30,6 +30,7 @@ public class Course {
         this.time = time;
         this.instructor = instructor;
         this.description = description;
+        grade = "N/A";
     }
 
     public String getCourseName() {
