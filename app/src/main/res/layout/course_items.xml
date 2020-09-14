@@ -15,7 +15,7 @@
         android:layout_marginBottom="4dp">
 
         <TextView
-            android:id="@+id/assignment"
+            android:id="@+id/course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name"
@@ -23,19 +23,30 @@
             android:textSize="20sp"
             android:layout_centerVertical="true"/>
 
-        <!--            android:layout_alignEnd="@+id/image_info"-->
-
 
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginLeft="23dp"
+            android:layout_toEndOf="@+id/course"
+            android:layout_toRightOf="@+id/course"
             android:layout_centerVertical="true"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_toEndOf="@+id/assignment"
-            android:layout_toRightOf="@+id/assignment"
             android:text="location"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginLeft="23dp"
+            android:layout_toEndOf="@+id/location"
+            android:layout_toRightOf="@+id/location"
+            android:layout_centerVertical="true"
+            android:text="grade"
             android:textColor="@android:color/black"
             android:textSize="15sp" />
 
@@ -45,11 +56,11 @@
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="65dp"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="0dp"
-            android:layout_toEndOf="@+id/location"
-            android:layout_toRightOf="@+id/location"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/grade"
+            android:layout_toRightOf="@+id/grade"
             android:src="@drawable/ic_baseline_info_24" />
 
         <ImageView
@@ -79,6 +90,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_baseline_delete_outline_24" />
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -49,7 +49,7 @@ public class LoginPage extends AppCompatActivity {
 
                 if(!(current_user == null)){
                     Intent intent = new Intent(LoginPage.this, HomePage.class);
-                    intent.putExtra("userID", current_user.getUserId());
+                    intent.putExtra("userId", current_user.getUserId());
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Incorrect credentials, try again.", Toast.LENGTH_LONG).show();

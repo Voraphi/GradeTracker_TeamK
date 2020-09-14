@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.gradetracker_teamk.Model.Course;
 import com.example.gradetracker_teamk.RecyclerView.CourseAdapter;
@@ -42,6 +46,21 @@ public class viewAllCoursesActivity extends AppCompatActivity {
             finish();
         }
 
+        addCourse = findViewById(R.id.addCourseFAB);
+
+        addCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddCourseActivity.class);
+                intent.putExtra("userId", userId);
+                startActivity(intent);
+            }
+        });
+
+//        courseItems.add(new CourseItems("name", "local", "grade"));
+        createRecyclerItemCards();
+        buildRecyclerView();
+
     }
 
     private void buildRecyclerView() {
@@ -58,29 +77,31 @@ public class viewAllCoursesActivity extends AppCompatActivity {
             @Override
             public void onInfoClick(int position) {
                 //set alert to view all info for a course
+                Toast.makeText(getApplicationContext(), "Info click.", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onEditClick(int position) {
                 //send user to another activity where they can edit the course they clicked
+                Toast.makeText(getApplicationContext(), "Edit click.", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onDeleteClick(int position) {
                 //set alert for the user if they want to confirm to delete the clicked course
+                Toast.makeText(getApplicationContext(), "Delete click.", Toast.LENGTH_LONG).show();
             }
         });
     }
 
     private void createRecyclerItemCards() {
-        List<Course> userCourses = new ArrayList<>();
+        List<Course> userCourses;
         userCourses = db.getCoursesByUserId(userId);
 
         for(Course c : userCourses) {
             courseItems.add(new CourseItems(c.getCourseName(), c.getLocation(), c.getGrade()));
         }
-
+        Log.d(this.getClass().toString(), courseItems.size()+"");
     }
-
 
 }

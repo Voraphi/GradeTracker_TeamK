@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gradetracker_teamk.Model.User;
 import com.example.gradetracker_teamk.db.AppDataBase;
@@ -30,10 +31,11 @@ public class HomePage extends AppCompatActivity {
         viewCourses = findViewById(R.id.courses_button);
         viewOverAllGrades = findViewById(R.id.grades_button);
 
-        int userIdFromIntent = getIntent().getIntExtra("userid", -1);
+        int userIdFromIntent = getIntent().getIntExtra("userId", -1);
 
         if(userIdFromIntent == -1) {
             //make toast that says user was unsuccessfully logged in
+            Toast.makeText(getApplicationContext(), "user was unsuccessfully logged in", Toast.LENGTH_LONG).show();
             finish();
         }
         else {

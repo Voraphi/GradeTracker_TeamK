@@ -32,14 +32,16 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView courseNameView;
         public TextView courseLocationView;
+        public TextView gradeView;
         public ImageView info_icon;
         public ImageView edit_icon;
         public ImageView delete_icon;
 
         public ViewHolder(@NonNull View itemView, final OnItemClickedListener listener) {
             super(itemView);
-            courseNameView = itemView.findViewById(R.id.assignment);
+            courseNameView = itemView.findViewById(R.id.course);
             courseLocationView = itemView.findViewById(R.id.location);
+            gradeView = itemView.findViewById(R.id.grade);
             info_icon = itemView.findViewById(R.id.image_info);
             edit_icon = itemView.findViewById(R.id.image_edit);
             delete_icon = itemView.findViewById(R.id.image_delete);
@@ -100,10 +102,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
         holder.courseNameView.setText(currentItem.getCourseName());
         holder.courseLocationView.setText(currentItem.getLocation());
+        holder.gradeView.setText(currentItem.getGrade());
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+
 }

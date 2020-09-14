@@ -15,7 +15,6 @@ public class Course {
     private String courseName;
     private String subject;
     private String location;
-    private String time;
     private String grade;
     private String instructor;
     private String description;
@@ -23,13 +22,13 @@ public class Course {
     @PrimaryKey (autoGenerate = true)
     private int courseId;
 
-    public Course(String courseName, String subject, String location, String time, String instructor, String description) {
+    public Course(String courseName, String subject, String location, String instructor, String description, int userId) {
         this.courseName = courseName;
         this.subject = subject;
         this.location = location;
-        this.time = time;
         this.instructor = instructor;
         this.description = description;
+        this.userId = userId;
         grade = "N/A";
     }
 
@@ -55,14 +54,6 @@ public class Course {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getGrade() {

@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 public interface UsersDAO {
     @Insert
-    void inesertUser(User user);
+    void insertUser(User user);
 
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE username = :username")
     User getUserByUsername(String username);

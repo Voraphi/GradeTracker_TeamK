@@ -22,7 +22,7 @@ public class Register extends AppCompatActivity {
     private EditText password;
     private EditText first;
     private EditText second;
-    private Button button1;
+    private Button register;
     private UsersDAO db;
 
     @Override
@@ -34,11 +34,11 @@ public class Register extends AppCompatActivity {
 
         username = findViewById(R.id.register_input1);
         password = findViewById(R.id.register_input2);
-        button1 = findViewById(R.id.register_button);
+        register = findViewById(R.id.register_button);
         first = findViewById(R.id.register_first_name);
         second = findViewById(R.id.register_last_name);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
@@ -61,9 +61,8 @@ public class Register extends AppCompatActivity {
                         User temp = db.getUserByUsername(username.getText().toString());
                         if (temp == null) {
                             String name = (first.getText().toString() + second.getText().toString());
-                            db.inesertUser(new User(name, username.getText().toString(), password.getText().toString()));
-                            Intent intent = new Intent(Register.this, HomePage.class);
-                            startActivity(intent);
+                            db.insertUser(new User(name, username.getText().toString(), password.getText().toString()));
+                            finish();
                         } else {
                             Toast.makeText(getApplicationContext(), "Username not available, try another", Toast.LENGTH_LONG).show();
                         }
