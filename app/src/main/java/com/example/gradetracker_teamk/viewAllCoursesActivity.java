@@ -91,9 +91,9 @@ public class viewAllCoursesActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Course Does not exist, please refresh.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Intent intent = new Intent(getApplicationContext(), EditCourseActivity.class);
-                    intent.putExtra("courseId", clickedCourse.getCourseId());
-                    startActivity(intent);
+//                    Intent intent = new Intent(getApplicationContext(), EditCourseActivity.class);
+//                    intent.putExtra("courseId", clickedCourse.getCourseId());
+//                    startActivity(intent);
                 }
 
                 Toast.makeText(getApplicationContext(), "Edit click.", Toast.LENGTH_LONG).show();

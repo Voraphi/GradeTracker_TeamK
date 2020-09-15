@@ -22,4 +22,11 @@ public class ExampleUnitTest {
         assertEquals("jose", user.getName());
     }
 
+    @Test
+    public void validatePassword() {
+        User user = new User("Jesus Caballero", "voraphi", "iLikeCats6");
+        user.setPassword("iDontLikeCats");
+
+    }
+
 }
