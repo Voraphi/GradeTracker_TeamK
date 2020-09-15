@@ -49,13 +49,24 @@ public class AddCourseActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Make sure no fields are empty.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Course newCourse = new Course(nameOfCourse.getText().toString(), subject.getText().toString(), location.getText().toString(), instructor.getText().toString(), courseDescription.getText().toString(), userId);
-                    db.insertCourse(newCourse);
-                    Log.d(this.getClass().toGenericString(), newCourse.toString());
-                    Toast.makeText(getApplicationContext(), "Course Successfully created!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), viewOverAllGradesActivity.class);
-                    intent.putExtra("userId", userId);
-                    startActivity(intent);
+
+                    Course currentCourseName = db.getCourseNameByCourseName(nameOfCourse.getText().toString(), userId);
+
+                    if(currentCourseName == null) {
+                        Course newCourse = new Course(nameOfCourse.getText().toString(), subject.getText().toString(), location.getText().toString(), instructor.getText().toString(), courseDescription.getText().toString(), userId);
+                        db.insertCourse(newCourse);
+                        Log.d(this.getClass().toGenericString(), newCourse.toString());
+                        Toast.makeText(getApplicationContext(), "Course Successfully created!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), viewOverAllGradesActivity.class);
+                        intent.putExtra("userId", userId);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Course Name Cannot Be The Same as one Previously entered.", Toast.LENGTH_LONG).show();
+
+                    }
+
+
                 }
             }
         });

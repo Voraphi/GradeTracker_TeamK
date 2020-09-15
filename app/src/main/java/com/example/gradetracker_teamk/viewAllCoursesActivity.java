@@ -91,6 +91,11 @@ public class viewAllCoursesActivity extends AppCompatActivity {
                 //set alert for the user if they want to confirm to delete the clicked course
                 Toast.makeText(getApplicationContext(), "Delete click.", Toast.LENGTH_LONG).show();
             }
+
+            @Override
+            public void onCourseNameClick(int position, String courseName) {
+                Toast.makeText(getApplicationContext(), courseName, Toast.LENGTH_LONG).show();
+            }
         });
     }
 

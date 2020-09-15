@@ -22,6 +22,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         void onInfoClick(int position);
         void onEditClick(int position);
         void onDeleteClick(int position);
+        void onCourseNameClick(int position, String courseName);
 
     }
 
@@ -81,6 +82,20 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                     }
                 }
             });
+
+            courseNameView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onCourseNameClick(position, courseNameView.getText().toString());
+                        }
+                    }
+                }
+            });
+
+
         }
     }
 
