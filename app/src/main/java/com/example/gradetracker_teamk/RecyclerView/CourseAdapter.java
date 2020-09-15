@@ -20,7 +20,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     public interface OnItemClickedListener {
         void onInfoClick(int position);
-        void onEditClick(int position);
+        void onEditClick(int position, String courseName);
         void onDeleteClick(int position);
         void onCourseNameClick(int position, String courseName);
 
@@ -65,7 +65,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onEditClick(position);
+                            listener.onEditClick(position, courseNameView.getText().toString());
                         }
                     }
                 }

@@ -14,9 +14,7 @@ import androidx.room.PrimaryKey;
 public class Assignment {
 
 
-
     private int courseId;
-
 
 
     private String assignment;
@@ -25,7 +23,7 @@ public class Assignment {
     private String description;
     private String dateDue;
     // Primary Key auto-gen
-    @PrimaryKey (autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     private int assignmentId;
 
     public Assignment(String assignment, int maxScore, double earnedScore, String description, String dateDue) {
@@ -92,3 +90,4 @@ public class Assignment {
         this.courseId = courseId;
     }
 }
+

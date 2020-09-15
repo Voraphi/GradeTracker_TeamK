@@ -17,6 +17,9 @@ public class ExampleUnitTest {
         User user = new User("Jesus", "UserName", "password");
 
         assertEquals("Jesus", user.getName());
+
+        user.setName("jose");
+        assertEquals("jose", user.getName());
     }
 
 }

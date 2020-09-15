@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.gradetracker_teamk.Model.Course;
+import com.example.gradetracker_teamk.Model.User;
 import com.example.gradetracker_teamk.RecyclerView.CourseAdapter;
 import com.example.gradetracker_teamk.RecyclerView.CourseItems;
 import com.example.gradetracker_teamk.db.AppDataBase;
@@ -81,8 +82,20 @@ public class viewAllCoursesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onEditClick(int position) {
+            public void onEditClick(int position, String courseName) {
                 //send user to another activity where they can edit the course they clicked
+
+                Course clickedCourse = db.getCourseNameByCourseName(courseName, userId);
+
+                if(clickedCourse == null) {
+                    Toast.makeText(getApplicationContext(), "Course Does not exist, please refresh.", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), EditCourseActivity.class);
+                    intent.putExtra("courseId", clickedCourse.getCourseId());
+                    startActivity(intent);
+                }
+
                 Toast.makeText(getApplicationContext(), "Edit click.", Toast.LENGTH_LONG).show();
             }
 

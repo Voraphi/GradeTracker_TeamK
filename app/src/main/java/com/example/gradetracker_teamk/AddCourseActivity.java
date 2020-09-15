@@ -57,7 +57,7 @@ public class AddCourseActivity extends AppCompatActivity {
                         db.insertCourse(newCourse);
                         Log.d(this.getClass().toGenericString(), newCourse.toString());
                         Toast.makeText(getApplicationContext(), "Course Successfully created!", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), viewOverAllGradesActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), HomePage.class);
                         intent.putExtra("userId", userId);
                         startActivity(intent);
                     }
@@ -80,5 +80,8 @@ public class AddCourseActivity extends AppCompatActivity {
         instructor = findViewById(R.id.instructorEditText);
         courseDescription = findViewById(R.id.courseDescriptionEditText);
         addCourse = findViewById(R.id.addCourseButton);
+
+        //get course info from the database through the courseId
+
     }
 }

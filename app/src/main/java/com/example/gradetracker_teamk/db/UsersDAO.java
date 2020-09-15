@@ -35,4 +35,7 @@ public interface UsersDAO {
     @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE courseName = :courseName and userId = :userId")
     Course getCourseNameByCourseName(String courseName, int userId);
 
+    @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE courseId = :courseId")
+    Course getCourseByCourseId(int courseId);
+
 }

@@ -60,7 +60,7 @@ public class Register extends AppCompatActivity {
 
                         User temp = db.getUserByUsername(username.getText().toString());
                         if (temp == null) {
-                            String name = (first.getText().toString() + second.getText().toString());
+                            String name = (first.getText().toString() + " " + second.getText().toString());
                             db.insertUser(new User(name, username.getText().toString(), password.getText().toString()));
                             finish();
                         } else {
