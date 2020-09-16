@@ -21,11 +21,11 @@
         app:layout_constraintVertical_bias="0.12">
 
         <EditText
-            android:id="@+id/nameOfCourseEditText"
+            android:id="@+id/nameOfAssignmentEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name of Course"
+            android:hint="Name of Assingment"
             android:inputType="textPersonName"
             android:maxLength="20"
             tools:layout_editor_absoluteX="-16dp"
@@ -42,19 +42,18 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.261">
 
         <EditText
-            android:id="@+id/subjectEditText"
+            android:id="@+id/earnedScoreEditText"
             android:layout_width="160dp"
             android:layout_height="43dp"
             android:ems="10"
-            android:hint="Subject"
-            android:inputType="textPersonName"
+            android:hint="Earned Score"
+            android:inputType="numberDecimal"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -69,7 +68,6 @@
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
@@ -78,12 +76,12 @@
         app:layout_constraintVertical_bias="0.261">
 
         <EditText
-            android:id="@+id/locationEditText"
+            android:id="@+id/maxScoreEditText"
             android:layout_width="160dp"
             android:layout_height="43dp"
             android:ems="10"
-            android:hint="Location"
-            android:inputType="textPersonName"
+            android:hint="Max Score"
+            android:inputType="numberSigned"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="167dp" />
 
@@ -91,21 +89,21 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="48dp"
         app:counterEnabled="true"
-        app:counterMaxLength="40"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/instructorEditText"
+            android:id="@+id/dueDateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Instructor"
-            android:inputType="textPersonName"
+            android:hint="Date Due"
+            android:inputType="date"
             tools:layout_editor_absoluteX="100dp"
             tools:layout_editor_absoluteY="388dp" />
 
@@ -118,28 +116,28 @@
         android:layout_marginBottom="40dp"
         app:counterEnabled="true"
         app:counterMaxLength="100"
-        app:layout_constraintBottom_toTopOf="@id/addCourseButton"
+        app:layout_constraintBottom_toTopOf="@id/addAssignmentButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
 
         <EditText
-            android:id="@+id/courseDescriptionEditText"
+            android:id="@+id/assignmentDescriptionEditText"
             android:layout_width="253dp"
             android:layout_height="155dp"
             android:ems="10"
-            android:hint="Course Description"
+            android:hint="Assignment Description"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="81dp"
             tools:layout_editor_absoluteY="456dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/addCourseButton"
+        android:id="@+id/addAssignmentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Add Course"
+        android:text="Add Assignment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

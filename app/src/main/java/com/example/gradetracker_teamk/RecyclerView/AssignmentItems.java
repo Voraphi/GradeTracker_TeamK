@@ -3,10 +3,10 @@ package com.example.gradetracker_teamk.RecyclerView;
 public class AssignmentItems {
     String assignment;
     String dateDue;
-    String earnedScore;
-    String maxScore;
+    double earnedScore;
+    int maxScore;
 
-    public AssignmentItems(String assignment, String dateDue, String earnedScore, String maxScore) {
+    public AssignmentItems(String assignment, String dateDue, double earnedScore, int maxScore) {
         this.assignment = assignment;
         this.dateDue = dateDue;
         this.earnedScore = earnedScore;
@@ -29,19 +29,19 @@ public class AssignmentItems {
         this.dateDue = dateDue;
     }
 
-    public String getEarnedScore() {
+    public double getEarnedScore() {
         return earnedScore;
     }
 
-    public void setEarnedScore(String earnedScore) {
+    public void setEarnedScore(double earnedScore) {
         this.earnedScore = earnedScore;
     }
 
-    public String getMaxScore() {
+    public int getMaxScore() {
         return maxScore;
     }
 
-    public void setMaxScore(String maxScore) {
+    public void setMaxScore(int maxScore) {
         this.maxScore = maxScore;
     }
 }

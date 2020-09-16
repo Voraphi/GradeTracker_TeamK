@@ -55,7 +55,7 @@ public class AddCourseActivity extends AppCompatActivity {
                     if(currentCourseName == null) {
                         Course newCourse = new Course(nameOfCourse.getText().toString(), subject.getText().toString(), location.getText().toString(), instructor.getText().toString(), courseDescription.getText().toString(), userId);
                         db.insertCourse(newCourse);
-                        Log.d(this.getClass().toGenericString(), newCourse.toString());
+//                        Log.d(this.getClass().toGenericString(), newCourse.toString());
                         Toast.makeText(getApplicationContext(), "Course Successfully created!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), HomePage.class);
                         intent.putExtra("userId", userId);

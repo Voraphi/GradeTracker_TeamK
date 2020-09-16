@@ -1,9 +1,11 @@
 package com.example.gradetracker_teamk.db;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.gradetracker_teamk.Model.Assignment;
 import com.example.gradetracker_teamk.Model.Course;
 import com.example.gradetracker_teamk.Model.User;
 
@@ -13,6 +15,9 @@ import java.util.List;
 public interface UsersDAO {
     @Insert
     void insertUser(User user);
+
+    @Delete
+    void deleteUser(User user);
 
     @Query("SELECT * FROM " + AppDataBase.USERS_TABLE + " WHERE username = :username")
     User getUserByUsername(String username);
@@ -29,6 +34,9 @@ public interface UsersDAO {
     @Insert
     void insertCourse(Course course);
 
+    @Delete
+    void deleteCourse(Course course);
+
     @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE userId = :userId")
     List<Course> getCoursesByUserId(int userId);
 
@@ -37,5 +45,23 @@ public interface UsersDAO {
 
     @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE courseId = :courseId")
     Course getCourseByCourseId(int courseId);
+
+    @Insert
+    void inserAssignment(Assignment assignment);
+
+    @Delete
+    void deleteAssingment(Assignment assignment);
+
+    @Query("SELECT * FROM " + AppDataBase.ASSIGNMENTS_TABLE + " WHERE courseId = :courseId")
+    List<Assignment> getAssignmentByCourseId(int courseId);
+
+    @Query("SELECT * FROM " + AppDataBase.ASSIGNMENTS_TABLE + " WHERE assignment = :assignment and courseId = :courseId")
+    Assignment getAssignmentByAssignmentName(String assignment, int courseId);
+
+    @Query("SELECT * FROM " + AppDataBase.ASSIGNMENTS_TABLE + " WHERE assignmentId = :assignmentId")
+    Assignment getAssignmentById(int assignmentId);
+
+
+
 
 }

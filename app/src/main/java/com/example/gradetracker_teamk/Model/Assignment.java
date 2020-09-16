@@ -13,10 +13,7 @@ import androidx.room.PrimaryKey;
 
 public class Assignment {
 
-
     private int courseId;
-
-
     private String assignment;
     private int maxScore;
     private double earnedScore;
@@ -26,12 +23,13 @@ public class Assignment {
     @PrimaryKey(autoGenerate = true)
     private int assignmentId;
 
-    public Assignment(String assignment, int maxScore, double earnedScore, String description, String dateDue) {
+    public Assignment(String assignment, int maxScore, double earnedScore, String description, String dateDue, int courseId) {
         this.assignment = assignment;
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.description = description;
         this.dateDue = dateDue;
+        this.courseId = courseId;
     }
 
     public String getAssignment() {

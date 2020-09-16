@@ -19,7 +19,9 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     private OnItemClickedListener listener;
 
     public interface OnItemClickedListener {
-        void onItemClick(int position);
+        void onInfoClick(int position);
+        void onEditClick(int position);
+        void onDeleteClick(int position);
     }
 
     public void setOnItemClickListener(OnItemClickedListener listener) {
@@ -39,8 +41,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
             assignmentView = itemView.findViewById(R.id.assignment);
             dueDateView = itemView.findViewById(R.id.dueDate);
             gradeView = itemView.findViewById(R.id.grade);
-            info_icon = itemView.findViewById(R.id.image_edit);
-            edit_icon = itemView.findViewById(R.id.image_info);
+            info_icon = itemView.findViewById(R.id.image_info);
+            edit_icon = itemView.findViewById(R.id.image_edit);
             delete_icon = itemView.findViewById(R.id.image_delete);
 
             info_icon.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +51,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
+                            listener.onInfoClick(position);
                         }
                     }
                 }
@@ -61,7 +63,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
+                            listener.onEditClick(position);
                         }
                     }
                 }
@@ -73,11 +75,12 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
+                            listener.onDeleteClick(position);
                         }
                     }
                 }
             });
+
         }
     }
 
@@ -100,7 +103,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
         holder.assignmentView.setText(currentItem.getAssignment());
         holder.dueDateView.setText(currentItem.getDateDue());
 
-        double score = Double.parseDouble(currentItem.getEarnedScore()) / Double.parseDouble(currentItem.getMaxScore());
+        double score = currentItem.getEarnedScore() / currentItem.getMaxScore();
         String scoreString = "%" + score;
         holder.gradeView.setText(scoreString);
     }

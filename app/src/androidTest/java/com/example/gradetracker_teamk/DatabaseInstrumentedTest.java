@@ -56,8 +56,6 @@ public class DatabaseInstrumentedTest {
         assertEquals("josemr", byName.getUsername());
         verifyCreds = usersDAO.verifyCreds(user.getUsername(), user.getPassword());
         assertNotNull(verifyCreds);
-
-
     }
 
     @Test
