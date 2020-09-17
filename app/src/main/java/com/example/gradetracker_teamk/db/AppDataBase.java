@@ -11,7 +11,7 @@ import com.example.gradetracker_teamk.Model.Assignment;
 import com.example.gradetracker_teamk.Model.Course;
 import com.example.gradetracker_teamk.Model.User;
 
-@Database(entities = {User.class, Course.class, Assignment.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, Course.class, Assignment.class}, version = 2, exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
 
     public static final String DB_NAME = "GRADE_TRACKER_DATABASE";

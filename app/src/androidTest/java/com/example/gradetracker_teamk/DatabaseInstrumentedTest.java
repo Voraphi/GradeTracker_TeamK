@@ -64,4 +64,14 @@ public class DatabaseInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.gradetracker_teamk", appContext.getPackageName());
     }
+    @Test
+    public void validatePassword() {
+        Context context = ApplicationProvider.getApplicationContext();
+        User user = new User("Jesus Kaba Lero", "fifi", "idontlikecats");
+        user.setPassword("iDontLikeCats");
+        usersDAO.insertUser(user);
+
+        assertEquals(true, Register.validatePassword(context, user.getPassword()));
+
+    }
 }

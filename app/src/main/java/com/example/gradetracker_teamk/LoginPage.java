@@ -34,7 +34,6 @@ public class LoginPage extends AppCompatActivity {
         log_in_button = findViewById(R.id.home_button);
         username = findViewById(R.id.home_text_view_2);
         password = findViewById(R.id.home_text_view_3);
-        getDataBase();
 
         log_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,11 +55,5 @@ public class LoginPage extends AppCompatActivity {
                 }
             }
         });
-    }
-    private void getDataBase() {
-        db = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DB_NAME)
-                .allowMainThreadQueries()
-                .build()
-                .getUsersDAO();
     }
 }

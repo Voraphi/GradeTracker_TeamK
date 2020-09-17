@@ -186,6 +186,7 @@ public class viewAllAssignmentsActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Assignment deletedAssignment = db.getAssignmentById(assignment.getAssignmentId());
                 db.deleteAssignment(deletedAssignment);
+                updateCourseGrade(getApplicationContext(), courseId);
 
                 Toast.makeText(getApplicationContext(), "Assignment successfully deleted.", Toast.LENGTH_LONG).show();
 
@@ -279,6 +280,7 @@ public class viewAllAssignmentsActivity extends AppCompatActivity {
 
             Course updatedCourse = db.getCourseByCourseId(courseId);
             updatedCourse.setGrade(gradeString);
+            db.updateCourse(updatedCourse);
 
         }
     }

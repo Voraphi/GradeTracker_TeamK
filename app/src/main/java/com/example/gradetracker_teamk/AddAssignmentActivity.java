@@ -67,6 +67,7 @@ public class AddAssignmentActivity extends AppCompatActivity {
                         }
                         Assignment newAssignment = new Assignment(assignmentName.getText().toString(), max, earned, assignmentDescription.getText().toString(), dueDate.getText().toString(), courseId);
                         db.insertAssignment(newAssignment);
+                        viewAllAssignmentsActivity.updateCourseGrade(getApplicationContext(), courseId);
 
 
 

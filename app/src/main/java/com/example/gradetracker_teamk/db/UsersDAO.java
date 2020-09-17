@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.gradetracker_teamk.Model.Assignment;
 import com.example.gradetracker_teamk.Model.Course;
@@ -36,6 +37,9 @@ public interface UsersDAO {
 
     @Delete
     void deleteCourse(Course course);
+
+    @Update
+    void updateCourse(Course course);
 
     @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE userId = :userId")
     List<Course> getCoursesByUserId(int userId);

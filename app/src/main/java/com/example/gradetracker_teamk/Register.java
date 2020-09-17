@@ -2,9 +2,10 @@ package com.example.gradetracker_teamk;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.room.Room;
 
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -42,9 +43,8 @@ public class Register extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-                getDataBase();
-
                 boolean empty = false;
+
                 if (username.getText().toString().equals("") ||
                     password.getText().toString().equals("") ||
                     first.getText().toString().equals("") ||
@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Make sure no fields are empty.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    if (validatePassword(password.getText().toString())) {
+                    if (validatePassword(getApplicationContext(), password.getText().toString())) {
 
                         User temp = db.getUserByUsername(username.getText().toString());
                         if (temp == null) {
@@ -72,17 +72,10 @@ public class Register extends AppCompatActivity {
         });
     }
 
-    private void getDataBase() {
-        db = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DB_NAME)
-                .allowMainThreadQueries()
-                .build()
-                .getUsersDAO();
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private Boolean validatePassword(String password) {
+    public static Boolean validatePassword(Context context, String password) {
         if (!(password.length() > 5)) {
-            Toast.makeText(getApplicationContext(), "Password must be length 6 or more", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Password must be length 6 or more", Toast.LENGTH_LONG).show();
             return false;
         }
         boolean has_num = false;
@@ -98,11 +91,11 @@ public class Register extends AppCompatActivity {
         }
 
         if (!has_char) {
-            Toast.makeText(getApplicationContext(), "Your password must include a letter.", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Your password must include a letter.", Toast.LENGTH_LONG).show();
             return false;
         }
         if (!has_num) {
-            Toast.makeText(getApplicationContext(), "Your password must include a number.", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Your password must include a number.", Toast.LENGTH_LONG).show();
             return false;
         }
 
