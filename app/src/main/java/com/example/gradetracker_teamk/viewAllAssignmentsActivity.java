@@ -99,9 +99,11 @@ public class viewAllAssignmentsActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Assignment Does not exist, please refresh.", Toast.LENGTH_LONG).show();
                 }
                 else {
-//                    Intent intent = new Intent(getApplicationContext(), EditCourseActivity.class);
-//                    intent.putExtra("courseId", clickedCourse.getCourseId());
-//                    startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), EditAssignmentActivity.class);
+                    intent.putExtra("courseId", courseId);
+                    intent.putExtra("userId", userId);
+                    intent.putExtra("assignmentId", clickedAssignment.getAssignmentId());
+                    startActivity(intent);
                 }
 
 //                Toast.makeText(getApplicationContext(), "Edit click.", Toast.LENGTH_LONG).show();

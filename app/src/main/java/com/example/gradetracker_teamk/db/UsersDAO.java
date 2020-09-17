@@ -59,6 +59,9 @@ public interface UsersDAO {
     @Delete
     void deleteAssignment(Assignment assignment);
 
+    @Update
+    void updateAssignment(Assignment assignment);
+
     @Query("SELECT * FROM " + AppDataBase.ASSIGNMENTS_TABLE + " WHERE courseId = :courseId")
     List<Assignment> getAssignmentByCourseId(int courseId);
 
