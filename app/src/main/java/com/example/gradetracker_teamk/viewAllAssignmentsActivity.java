@@ -185,7 +185,7 @@ public class viewAllAssignmentsActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Assignment deletedAssignment = db.getAssignmentById(assignment.getAssignmentId());
-                db.deleteAssingment(deletedAssignment);
+                db.deleteAssignment(deletedAssignment);
 
                 Toast.makeText(getApplicationContext(), "Assignment successfully deleted.", Toast.LENGTH_LONG).show();
 
@@ -212,6 +212,75 @@ public class viewAllAssignmentsActivity extends AppCompatActivity {
         });
 
         alert.create().show();
+    }
+
+    public static void updateCourseGrade(Context context, int courseId) {
+        UsersDAO db = AppDataBase.getInstance(context).getUsersDAO();
+        List<Assignment> assignmentList = db.getAssignmentByCourseId(courseId);
+
+        if(!assignmentList.isEmpty()) {
+
+            double earnedScore = 0;
+            int maxScore = 0;
+
+            for(Assignment assignment : assignmentList) {
+                earnedScore += assignment.getEarnedScore();
+                maxScore += assignment.getMaxScore();
+            }
+
+            double gradeDouble =  (earnedScore / maxScore) * 100;
+            String gradeString = "N/A";
+
+            if(gradeDouble >= 90) {
+                gradeString = "A";
+
+                if(gradeDouble < 94) {
+                    gradeString += "-";
+                }
+                else if(gradeDouble >= 97) {
+                    gradeString += "+";
+                }
+            }
+            else if(gradeDouble < 60) {
+                gradeString = "F";
+            }
+            else {
+                if(gradeDouble >= 80) {
+                    gradeString = "B";
+
+                    if(gradeDouble < 84) {
+                        gradeString += "-";
+                    }
+                    else if(gradeDouble >= 87) {
+                        gradeString += "+";
+                    }
+                }
+                else if(gradeDouble >= 70) {
+                    gradeString = "C";
+
+                    if(gradeDouble < 74) {
+                        gradeString += "-";
+                    }
+                    else if(gradeDouble >= 77) {
+                        gradeString += "+";
+                    }
+                }
+                else {
+                    gradeString = "D";
+
+                    if(gradeDouble < 64) {
+                        gradeString += "-";
+                    }
+                    else if(gradeDouble >= 67) {
+                        gradeString += "+";
+                    }
+                }
+            }
+
+            Course updatedCourse = db.getCourseByCourseId(courseId);
+            updatedCourse.setGrade(gradeString);
+
+        }
     }
 
 }

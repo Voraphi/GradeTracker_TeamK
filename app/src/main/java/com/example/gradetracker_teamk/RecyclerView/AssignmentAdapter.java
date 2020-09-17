@@ -103,8 +103,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
         holder.assignmentView.setText(currentItem.getAssignment());
         holder.dueDateView.setText(currentItem.getDateDue());
 
-        double score = currentItem.getEarnedScore() / currentItem.getMaxScore();
-        String scoreString = "%" + score;
+        double score = (currentItem.getEarnedScore() / currentItem.getMaxScore()) * 100;
+        String scoreString = String.format("%.2f", score) + " %";
         holder.gradeView.setText(scoreString);
     }
 

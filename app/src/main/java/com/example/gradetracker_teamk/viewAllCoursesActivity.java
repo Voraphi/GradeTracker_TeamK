@@ -192,7 +192,7 @@ public class viewAllCoursesActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 for(Assignment assignment : db.getAssignmentByCourseId(course.getCourseId())) {
-                    db.deleteAssingment(assignment);
+                    db.deleteAssignment(assignment);
                 }
                 db.deleteCourse(course);
 //                Toast.makeText(getApplicationContext(), "Course and Assignments successfully deleted.", Toast.LENGTH_LONG).show();

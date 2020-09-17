@@ -46,11 +46,14 @@ public interface UsersDAO {
     @Query("SELECT * FROM " + AppDataBase.COURSES_TABLE + " WHERE courseId = :courseId")
     Course getCourseByCourseId(int courseId);
 
+    @Query("UPDATE " + AppDataBase.COURSES_TABLE + " SET grade = :grade WHERE courseId = :courseId")
+    void updateGradeForCourse(String grade, int courseId);
+
     @Insert
-    void inserAssignment(Assignment assignment);
+    void insertAssignment(Assignment assignment);
 
     @Delete
-    void deleteAssingment(Assignment assignment);
+    void deleteAssignment(Assignment assignment);
 
     @Query("SELECT * FROM " + AppDataBase.ASSIGNMENTS_TABLE + " WHERE courseId = :courseId")
     List<Assignment> getAssignmentByCourseId(int courseId);

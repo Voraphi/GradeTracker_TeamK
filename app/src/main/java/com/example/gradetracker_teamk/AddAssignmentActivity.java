@@ -66,7 +66,10 @@ public class AddAssignmentActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Make sure all your scores are numbers.", Toast.LENGTH_LONG).show();
                         }
                         Assignment newAssignment = new Assignment(assignmentName.getText().toString(), max, earned, assignmentDescription.getText().toString(), dueDate.getText().toString(), courseId);
-                        db.inserAssignment(newAssignment);
+                        db.insertAssignment(newAssignment);
+
+
+
 //                        Log.d(this.getClass().toGenericString(), newCourse.toString());
                         Toast.makeText(getApplicationContext(), "Assignment Successfully created!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), viewAllCoursesActivity.class);
