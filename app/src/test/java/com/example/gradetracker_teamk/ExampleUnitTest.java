@@ -22,6 +22,24 @@ public class ExampleUnitTest {
 
         user.setName("jose");
         assertEquals("jose", user.getName());
+
+        assertEquals("UserName", user.getUsername());
+
+        user.setUsername("joseMr");
+        assertEquals("joseMr", user.getUsername());
+
+        assertEquals("password", user.getPassword());
+
+        user.setPassword("Nunya");
+        assertEquals("Nunya", user.getPassword());
+
+        int userId = user.getUserId();
+
+        assertEquals(userId, user.getUserId());
+
+        user.setUserId(6);
+        assertEquals(6, user.getUserId());
+
     }
 
 
