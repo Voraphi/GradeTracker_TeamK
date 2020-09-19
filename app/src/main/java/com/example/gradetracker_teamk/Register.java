@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Make sure no fields are empty.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    if (validatePassword(getApplicationContext(), password.getText().toString())) {
+                    if (validatePassword(password.getText().toString())) {
 
                         User temp = db.getUserByUsername(username.getText().toString());
                         if (temp == null) {
@@ -73,9 +73,9 @@ public class Register extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static Boolean validatePassword(Context context, String password) {
+    private Boolean validatePassword(String password) {
         if (!(password.length() > 5)) {
-            Toast.makeText(context, "Password must be length 6 or more", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Password must be length 6 or more", Toast.LENGTH_LONG).show();
             return false;
         }
         boolean has_num = false;
@@ -91,16 +91,36 @@ public class Register extends AppCompatActivity {
         }
 
         if (!has_char) {
-            Toast.makeText(context, "Your password must include a letter.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Your password must include a letter.", Toast.LENGTH_LONG).show();
             return false;
         }
         if (!has_num) {
-            Toast.makeText(context, "Your password must include a number.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Your password must include a number.", Toast.LENGTH_LONG).show();
             return false;
         }
 
 
         return true;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public static boolean validatePasswordUnitTest(String password) {
+        if (!(password.length() > 5)) {
+            return false;
+        }
+        boolean has_num = false;
+        boolean has_char = false;
+
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isAlphabetic(password.charAt(i))) {
+                has_char = true;
+            }
+            if (Character.isDigit(password.charAt(i))) {
+                has_num = true;
+            }
+        }
+
+        return has_num && has_char;
     }
 
 }

@@ -51,6 +51,7 @@ public class viewOverAllGradesActivity extends AppCompatActivity {
     private GradesAdapter gradesAdapter;
     private int userId;
     private TextView gpa;
+    private TextView gpaString;
 
     UsersDAO db;
 
@@ -62,7 +63,9 @@ public class viewOverAllGradesActivity extends AppCompatActivity {
         db = AppDataBase.getInstance(getApplicationContext()).getUsersDAO();
         userId = getIntent().getIntExtra("userId", -1);
         gpa = findViewById(R.id.overall_text2);
+        gpaString = findViewById(R.id.overall_text1);
         gpa.setText(calculateGPA().toString());
+        gpaString.setText("GPA: ");
 
 
         createRecyclerItemCards();
@@ -93,9 +96,12 @@ public class viewOverAllGradesActivity extends AppCompatActivity {
     private Double calculateGPA() {
         List<Course> list = db.getCoursesByUserId(userId);
         Double gpaDub = 0.0;
-        int count = 0;
+        double count = 0.0;
         for(Course c : list){
-            if(c.getGrade().startsWith("A")) {
+            if(c.getGrade().equals("N/A")) {
+                continue;
+            }
+            else if(c.getGrade().startsWith("A")) {
                 gpaDub += 4.0;
             }
             else if(c.getGrade().startsWith("B")) {

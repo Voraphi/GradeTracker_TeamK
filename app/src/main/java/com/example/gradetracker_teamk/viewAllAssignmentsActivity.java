@@ -286,5 +286,70 @@ public class viewAllAssignmentsActivity extends AppCompatActivity {
 
         }
     }
+    public static String updateCourseGradeUnitTest(List<Assignment> assignmentList) {
+
+        String gradeString = "N/A";
+
+        if(!assignmentList.isEmpty()) {
+
+            double earnedScore = 0;
+            int maxScore = 0;
+
+            for(Assignment assignment : assignmentList) {
+                earnedScore += assignment.getEarnedScore();
+                maxScore += assignment.getMaxScore();
+            }
+
+            double gradeDouble =  (earnedScore / maxScore) * 100;
+
+            if(gradeDouble >= 90) {
+                gradeString = "A";
+
+                if(gradeDouble < 94) {
+                    gradeString += "-";
+                }
+                else if(gradeDouble >= 97) {
+                    gradeString += "+";
+                }
+            }
+            else if(gradeDouble < 60) {
+                gradeString = "F";
+            }
+            else {
+                if(gradeDouble >= 80) {
+                    gradeString = "B";
+
+                    if(gradeDouble < 84) {
+                        gradeString += "-";
+                    }
+                    else if(gradeDouble >= 87) {
+                        gradeString += "+";
+                    }
+                }
+                else if(gradeDouble >= 70) {
+                    gradeString = "C";
+
+                    if(gradeDouble < 74) {
+                        gradeString += "-";
+                    }
+                    else if(gradeDouble >= 77) {
+                        gradeString += "+";
+                    }
+                }
+                else {
+                    gradeString = "D";
+
+                    if(gradeDouble < 64) {
+                        gradeString += "-";
+                    }
+                    else if(gradeDouble >= 67) {
+                        gradeString += "+";
+                    }
+                }
+            }
+
+        }
+        return gradeString;
+    }
 
 }

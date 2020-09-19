@@ -69,6 +69,7 @@ public class EditAssignmentActivity extends AppCompatActivity {
                     // In else condition get the new assignmentName and set that to the previous assignmentName and update it in Database.
                     if (assignmentName.getText().toString().equals(assignment.getAssignment())){
                         db.updateAssignment(assignment);
+                        viewAllAssignmentsActivity.updateCourseGrade(getApplicationContext(), courseId);
                         Toast.makeText(getApplicationContext(), "Assignment Successfully updated!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), HomePage.class);
                         intent.putExtra("userId", userId);
@@ -80,6 +81,7 @@ public class EditAssignmentActivity extends AppCompatActivity {
                             assignment.setAssignment(assignmentName.getText().toString());
                             assignment.setAssignment(assignmentName.getText().toString());
                             db.updateAssignment(assignment);
+                            viewAllAssignmentsActivity.updateCourseGrade(getApplicationContext(), courseId);
                             Toast.makeText(getApplicationContext(), "Assignment Successfully updated!", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(getApplicationContext(), HomePage.class);
                             intent.putExtra("userId", userId);
