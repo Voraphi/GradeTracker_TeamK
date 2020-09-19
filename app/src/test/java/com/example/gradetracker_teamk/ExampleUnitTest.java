@@ -1,12 +1,13 @@
 package com.example.gradetracker_teamk;
 
-        import android.content.Context;
+import android.content.Context;
 
-        import com.example.gradetracker_teamk.Model.User;
+import com.example.gradetracker_teamk.Model.Course;
+import com.example.gradetracker_teamk.Model.User;
 
-        import org.junit.Test;
+import org.junit.Test;
 
-        import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -39,6 +40,30 @@ public class ExampleUnitTest {
 
         user.setUserId(6);
         assertEquals(6, user.getUserId());
+
+    }
+
+    @Test
+    public void course_tests() {
+        Course course = new Course("courseName", "subject", "location", "instructor", "description", 999);
+
+        assertEquals("courseName", course.getCourseName());
+
+        course.setCourseName("newname");
+        assertEquals("newname", course.getCourseName());
+
+        course.setLocation("newloc");
+        assertEquals("newloc", course.getLocation());
+
+        course.setInstructor("newinst");
+        assertEquals("newinst", course.getInstructor());
+
+        course.setDescription("newdesc");
+        assertEquals("newdesc", course.getDescription());
+
+        course.setCourseId(123);
+        assertEquals(123, course.getCourseId());
+
 
     }
 
