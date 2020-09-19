@@ -17,6 +17,7 @@ import com.example.gradetracker_teamk.db.UsersDAO;
 
 public class EditCourseActivity extends AppCompatActivity {
 
+    // declaring class variables
     private UsersDAO db;
     private int courseId;
     private int userId;
@@ -38,17 +39,21 @@ public class EditCourseActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+                // checks if any of EditText field are empty, otherwise update the changes
                 if(courseName.getText().toString().isEmpty() || subject.getText().toString().isEmpty() ||
                         location.getText().toString().isEmpty() || instructor.getText().toString().isEmpty() || courseDescription.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Make sure no fields are empty.", Toast.LENGTH_LONG).show();
                 }
                 else {
+                    // set the new changes in the course with the courseId
                     Course course = db.getCourseByCourseId(courseId);
                     course.setSubject(subject.getText().toString());
                     course.setDescription(courseDescription.getText().toString());
                     course.setLocation(location.getText().toString());
                     course.setInstructor(instructor.getText().toString());
 
+                    // if courseName is the same then just update the course in the Database otherwise
+                    // In else condition get the new courseName and set that to the previous courseName and update it in Database.
                     if (courseName.getText().toString().equals(course.getCourseName())){
                         db.updateCourse(course);
                         Toast.makeText(getApplicationContext(), "Course Successfully updated!", Toast.LENGTH_LONG).show();
@@ -74,6 +79,7 @@ public class EditCourseActivity extends AppCompatActivity {
         });
     }
     private void wireUp(){
+        // connecting the EditText fields with the class variables
         courseName = findViewById(R.id.nameOfCourseEditText);
         subject = findViewById(R.id.subjectEditText);
         location = findViewById(R.id.locationEditText);
@@ -81,6 +87,7 @@ public class EditCourseActivity extends AppCompatActivity {
         editButton = findViewById(R.id.editCourseButton);
         instructor = findViewById(R.id.instructorEditText);
 
+        // Get the pre existent course info with the courseId that we are going to make changes
         userId = getIntent().getIntExtra("userId", -1);
         courseId = getIntent().getIntExtra("courseId", -1);
         Course course = db.getCourseByCourseId(courseId);
